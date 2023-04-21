@@ -8,7 +8,7 @@ Create a codespace from the main branch of this repo.
 <img src="https://user-images.githubusercontent.com/1130888/233664377-f300ad50-5436-4bb8-b172-c52e12047264.png" alt="image" width="300">
 
 ### Step 2
-Wait for the codespace build. This should take between 5 to 10 minutes.
+Wait for the codespace to build. This should take between 5 to 10 minutes.
 
 <img src="https://user-images.githubusercontent.com/1130888/233664397-4ae156f3-f69b-406f-b6d4-4f9316684000.png" alt="image" width="500">
 
