@@ -14,7 +14,6 @@
         "stef-k.laravel-goto-controller",
         "codingyu.laravel-goto-view",
         "mikestead.dotenv",
-        "eg2.tslint",
         "christian-kohler.path-intellisense",
         "esbenp.prettier-vscode",
         "CoenraadS.bracket-pair-colorizer"
