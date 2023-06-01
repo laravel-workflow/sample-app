@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "41767f0522b5287d338087c2f83abfc8",
+    "content-hash": "cbac679bb424a0f7c09048eb5851d19c",
     "packages": [
         {
             "name": "brick/math",
@@ -1029,16 +1029,16 @@
         },
         {
             "name": "laravel-workflow/laravel-workflow",
-            "version": "0.0.37",
+            "version": "0.0.38",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel-workflow/laravel-workflow.git",
-                "reference": "bbe6556bcf8a23015c5e15840c113278661896d3"
+                "reference": "8a981e345d156f0fde0d4d70907db7203f09a9c4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel-workflow/laravel-workflow/zipball/bbe6556bcf8a23015c5e15840c113278661896d3",
-                "reference": "bbe6556bcf8a23015c5e15840c113278661896d3",
+                "url": "https://api.github.com/repos/laravel-workflow/laravel-workflow/zipball/8a981e345d156f0fde0d4d70907db7203f09a9c4",
+                "reference": "8a981e345d156f0fde0d4d70907db7203f09a9c4",
                 "shasum": ""
             },
             "require": {
@@ -1080,9 +1080,9 @@
             "description": "Durable workflow engine that allows users to write long running persistent distributed workflows (orchestrations) in PHP powered by Laravel queues.",
             "support": {
                 "issues": "https://github.com/laravel-workflow/laravel-workflow/issues",
-                "source": "https://github.com/laravel-workflow/laravel-workflow/tree/0.0.37"
+                "source": "https://github.com/laravel-workflow/laravel-workflow/tree/0.0.38"
             },
-            "time": "2023-05-31T16:45:44+00:00"
+            "time": "2023-06-01T20:55:20+00:00"
         },
         {
             "name": "laravel-workflow/waterline",
