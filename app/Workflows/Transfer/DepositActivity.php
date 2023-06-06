@@ -10,6 +10,8 @@ use Workflow\Activity;
 
 class DepositActivity extends Activity
 {
+    public $tries = 3;
+
     public function execute($accountId, $amount)
     {
         app(CommandBus::class)->dispatch(new DepositCurrency($accountId, $amount));

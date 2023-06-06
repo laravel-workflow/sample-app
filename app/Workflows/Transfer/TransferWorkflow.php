@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Workflows\Transfer;
 
+use Throwable;
 use Workflow\ActivityStub;
 use Workflow\Workflow;
 

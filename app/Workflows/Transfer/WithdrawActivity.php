@@ -10,6 +10,8 @@ use Workflow\Activity;
 
 class WithdrawActivity extends Activity
 {
+    public $tries = 3;
+
     public function execute($accountId, $amount)
     {
         app(CommandBus::class)->dispatch(new WithdrawCurrency($accountId, $amount));
