@@ -12,7 +12,8 @@
         "laravel/framework": "^10.8",
         "laravel/horizon": "^5.16",
         "laravel/sanctum": "^3.2",
-        "laravel/tinker": "^2.8"
+        "laravel/tinker": "^2.8",
+        "spatie/laravel-event-sourcing": "^7.3"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
