@@ -16,6 +16,7 @@ class Workflow extends Command
     {
         $workflow = WorkflowStub::make(SimpleWorkflow::class);
         $workflow->start();
+        $workflow->receivePayment();
         while ($workflow->running());
         $this->info($workflow->output());
     }

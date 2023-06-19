@@ -4,17 +4,24 @@ declare(strict_types=1);
 
 namespace App\Workflows\Simple;
 
-use Workflow\ActivityStub;
+use Workflow\SignalMethod;
 use Workflow\Workflow;
+use Workflow\WorkflowStub;
 
 class SimpleWorkflow extends Workflow
 {
+    private bool $paymentReceived = false;
+
+    #[SignalMethod]
+    public function receivePayment()
+    {
+        $this->paymentReceived = true;
+    }
+
     public function execute()
     {
-        $result = yield ActivityStub::make(SimpleActivity::class);
+        yield WorkflowStub::await(fn () => $this->paymentReceived);
 
-        $otherResult = yield ActivityStub::make(SimpleOtherActivity::class, 'other');
-
-        return 'workflow_' . $result . '_' . $otherResult;
+        return 'workflow';
     }
 }
