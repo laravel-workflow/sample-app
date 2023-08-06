@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d315e9c61307c7c12294f458122ad6dc",
+    "content-hash": "143befa35f8099efb043d524e008db19",
     "packages": [
         {
             "name": "brick/math",
@@ -1029,16 +1029,16 @@
         },
         {
             "name": "laravel-workflow/laravel-workflow",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel-workflow/laravel-workflow.git",
-                "reference": "181fcd7b03728baf5d44d3d7865c3be0d5bfec30"
+                "reference": "fed64a3ac88facb6470977b5f458a790a5a142eb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel-workflow/laravel-workflow/zipball/181fcd7b03728baf5d44d3d7865c3be0d5bfec30",
-                "reference": "181fcd7b03728baf5d44d3d7865c3be0d5bfec30",
+                "url": "https://api.github.com/repos/laravel-workflow/laravel-workflow/zipball/fed64a3ac88facb6470977b5f458a790a5a142eb",
+                "reference": "fed64a3ac88facb6470977b5f458a790a5a142eb",
                 "shasum": ""
             },
             "require": {
@@ -1080,22 +1080,22 @@
             "description": "Durable workflow engine that allows users to write long running persistent distributed workflows (orchestrations) in PHP powered by Laravel queues.",
             "support": {
                 "issues": "https://github.com/laravel-workflow/laravel-workflow/issues",
-                "source": "https://github.com/laravel-workflow/laravel-workflow/tree/1.0.0"
+                "source": "https://github.com/laravel-workflow/laravel-workflow/tree/1.0.1"
             },
-            "time": "2023-07-16T01:50:17+00:00"
+            "time": "2023-08-02T15:33:47+00:00"
         },
         {
             "name": "laravel-workflow/waterline",
-            "version": "0.0.12",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel-workflow/waterline.git",
-                "reference": "e3d8a96e8a48a265b5c033aa3386237375820539"
+                "reference": "09524b3c361527b0690e026a4f7d39d4e9f20bfa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel-workflow/waterline/zipball/e3d8a96e8a48a265b5c033aa3386237375820539",
-                "reference": "e3d8a96e8a48a265b5c033aa3386237375820539",
+                "url": "https://api.github.com/repos/laravel-workflow/waterline/zipball/09524b3c361527b0690e026a4f7d39d4e9f20bfa",
+                "reference": "09524b3c361527b0690e026a4f7d39d4e9f20bfa",
                 "shasum": ""
             },
             "require": {
@@ -1137,9 +1137,9 @@
             "description": "An elegant UI for monitoring Laravel Workflows.",
             "support": {
                 "issues": "https://github.com/laravel-workflow/waterline/issues",
-                "source": "https://github.com/laravel-workflow/waterline/tree/0.0.12"
+                "source": "https://github.com/laravel-workflow/waterline/tree/1.0.0"
             },
-            "time": "2023-03-23T08:01:02+00:00"
+            "time": "2023-08-02T22:25:49+00:00"
         },
         {
             "name": "laravel/framework",
