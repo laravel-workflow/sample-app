@@ -1157,16 +1157,16 @@
         },
         {
             "name": "laravel-workflow/waterline",
-            "version": "1.0.8",
+            "version": "1.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel-workflow/waterline.git",
-                "reference": "22bb669fa5e7b87b3e61f10402bf6b819d8d228a"
+                "reference": "2a96f9f4d71ce04178b182ea346e9daecb52b10c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel-workflow/waterline/zipball/22bb669fa5e7b87b3e61f10402bf6b819d8d228a",
-                "reference": "22bb669fa5e7b87b3e61f10402bf6b819d8d228a",
+                "url": "https://api.github.com/repos/laravel-workflow/waterline/zipball/2a96f9f4d71ce04178b182ea346e9daecb52b10c",
+                "reference": "2a96f9f4d71ce04178b182ea346e9daecb52b10c",
                 "shasum": ""
             },
             "require": {
@@ -1211,9 +1211,9 @@
             "description": "An elegant UI for monitoring Laravel Workflows.",
             "support": {
                 "issues": "https://github.com/laravel-workflow/waterline/issues",
-                "source": "https://github.com/laravel-workflow/waterline/tree/1.0.8"
+                "source": "https://github.com/laravel-workflow/waterline/tree/1.0.9"
             },
-            "time": "2024-02-24T15:53:49+00:00"
+            "time": "2024-04-23T18:40:25+00:00"
         },
         {
             "name": "laravel/framework",
