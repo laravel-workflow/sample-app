@@ -19,7 +19,7 @@
         "CoenraadS.bracket-pair-colorizer"
 	],
 	"remoteUser": "sail",
-	"postCreateCommand": "chown -R 1000:1000 /var/www/html && composer install && php artisan key:generate",
+	"postCreateCommand": "chown -R 1000:1000 /var/www/html && composer install && export ASSET_URL=\"https://${CODESPACE_NAME}-80.${GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN}\"",
 	"forwardPorts": [80]
 	// "runServices": [],
 	// "shutdownAction": "none",
