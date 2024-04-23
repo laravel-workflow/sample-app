@@ -8,10 +8,23 @@ use Workflow\WorkflowStub;
 
 class Workflow extends Command
 {
-    protected $signature = 'workflow';
+    /**
+     * The name and signature of the console command.
+     *
+     * @var string
+     */
+    protected $signature = 'app:workflow';
 
+    /**
+     * The console command description.
+     *
+     * @var string
+     */
     protected $description = 'Runs a workflow';
 
+    /**
+     * Execute the console command.
+     */
     public function handle()
     {
         $workflow = WorkflowStub::make(SimpleWorkflow::class);

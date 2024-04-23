@@ -1,6 +1,6 @@
 # Laravel Workflow Sample App
 
-This is a sample Laravel 10 application with example workflows that you can run inside a GitHub codespace.
+This is a sample Laravel 11 application with example workflows that you can run inside a GitHub codespace.
 
 ### Step 1
 Create a codespace from the main branch of this repo.
@@ -40,7 +40,7 @@ Create a new terminal window.
 Start the example workflow inside the new terminal window.
 
 ```bash
-php artisan workflow
+php artisan app:workflow
 ```
 
 ### Step 8
