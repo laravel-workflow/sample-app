@@ -2,7 +2,6 @@
 
 namespace App\Workflows\Playwright;
 
-use Exceoption;
 use Workflow\ActivityStub;
 use Workflow\Workflow;
 
