@@ -2,18 +2,18 @@
 
 namespace App\Console\Commands;
 
-use App\Workflows\Simple\SimpleWorkflow;
+use App\Workflows\Playwright\CheckConsoleErrorsWorkflow;
 use Illuminate\Console\Command;
 use Workflow\WorkflowStub;
 
-class Workflow extends Command
+class Playwright extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'app:workflow';
+    protected $signature = 'app:playwright';
 
     /**
      * The console command description.
@@ -27,9 +27,9 @@ class Workflow extends Command
      */
     public function handle()
     {
-        $workflow = WorkflowStub::make(SimpleWorkflow::class);
-        $workflow->start();
+        $workflow = WorkflowStub::make(CheckConsoleErrorsWorkflow::class);
+        $workflow->start('https://example.com');
         while ($workflow->running());
-        $this->info($workflow->output());
+        $this->info($workflow->output()['mp4']);
     }
 }
