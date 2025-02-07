@@ -26,12 +26,11 @@ import fs from 'fs';
     });
 
     try {
-        await page.goto(url, { waitUntil: 'networkidle', timeout: 60000 });
+        await page.goto(url, { waitUntil: 'networkidle', timeout: 10000 });
     } catch (error) {
         errors.push(`Page load error: ${error.message}`);
     }
 
-    // Close browser and finalize video
     const video = await page.video().path();
     await browser.close();
 
