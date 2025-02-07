@@ -3,7 +3,6 @@
 namespace App\Workflows\Playwright;
 
 use Workflow\Activity;
-use Illuminate\Support\Facades\Log;
 use Symfony\Component\Process\Process;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 
