@@ -20,7 +20,7 @@ class Playwright extends Command
      *
      * @var string
      */
-    protected $description = 'Runs a workflow';
+    protected $description = 'Runs a playwright workflow';
 
     /**
      * Execute the console command.

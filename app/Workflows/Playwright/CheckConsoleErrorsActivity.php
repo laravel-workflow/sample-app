@@ -2,21 +2,17 @@
 
 namespace App\Workflows\Playwright;
 
+use Illuminate\Support\Facades\Process;
 use Workflow\Activity;
-use Symfony\Component\Process\Process;
-use Symfony\Component\Process\Exception\ProcessFailedException;
 
 class CheckConsoleErrorsActivity extends Activity
 {
     public function execute(string $url)
     {
-        $process = new Process(['node', base_path('playwright-script.js'), $url]);
-        $process->run();
+        $result = Process::run([
+            'node', base_path('playwright-script.js'), $url
+        ])->throw();
 
-        if (! $process->isSuccessful()) {
-            throw new ProcessFailedException($process);
-        }
-
-        return json_decode($process->getOutput(), true);
+        return json_decode($result->output(), true);
     }
 }
