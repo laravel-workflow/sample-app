@@ -2,7 +2,7 @@
 
 namespace App\Console\Commands;
 
-use App\Workflows\Simple\SimpleWorkflow;
+use App\Workflows\CheckConsoleErrorsWorkflow;
 use Illuminate\Console\Command;
 use Workflow\WorkflowStub;
 
@@ -27,9 +27,9 @@ class Workflow extends Command
      */
     public function handle()
     {
-        $workflow = WorkflowStub::make(SimpleWorkflow::class);
-        $workflow->start();
+        $workflow = WorkflowStub::make(CheckConsoleErrorsWorkflow::class);
+        $workflow->start('https://aol.com');
         while ($workflow->running());
-        $this->info($workflow->output());
+        $this->info(print_r($workflow->output(), true));
     }
 }
