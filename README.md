@@ -1,62 +1,66 @@
-# Laravel Workflow Sample App
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-This is a sample Laravel 11 application with example workflows that you can run inside a GitHub codespace.
+<p align="center">
+<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+</p>
 
-### Step 1
-Create a codespace from the main branch of this repo.
+## About Laravel
 
-<img src="https://user-images.githubusercontent.com/1130888/233664377-f300ad50-5436-4bb8-b172-c52e12047264.png" alt="image" width="300">
+Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-### Step 2
-Wait for the codespace to build. This should take between 5 to 10 minutes.
+- [Simple, fast routing engine](https://laravel.com/docs/routing).
+- [Powerful dependency injection container](https://laravel.com/docs/container).
+- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
+- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
+- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
+- [Robust background job processing](https://laravel.com/docs/queues).
+- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-<img src="https://user-images.githubusercontent.com/1130888/233664397-4ae156f3-f69b-406f-b6d4-4f9316684000.png" alt="image" width="500">
+Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-### Step 3
-Once the codespace has been created. You will see the editor and the terminal at the bottom.
+## Learning Laravel
 
-<img src="https://user-images.githubusercontent.com/1130888/233665550-1a4f2098-2919-4108-ac9f-bef1a9f2f47c.png" alt="image" width="400">
+Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
-### Step 4
-Run the migrations to create the necessary database tables.
+You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
 
-```bash
-php artisan migrate
-```
+If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-### Step 5
-Start the queue worker. This will enable the processing of workflows and activities.
+## Laravel Sponsors
 
-```bash
-php artisan queue:work
-```
+We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
 
-### Step 6
-Create a new terminal window.
+### Premium Partners
 
-<img src="https://user-images.githubusercontent.com/1130888/233666917-029247c7-9e6c-46de-b304-27473fd34517.png" alt="image" width="200">
+- **[Vehikl](https://vehikl.com/)**
+- **[Tighten Co.](https://tighten.co)**
+- **[WebReinvent](https://webreinvent.com/)**
+- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
+- **[64 Robots](https://64robots.com)**
+- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
+- **[Cyber-Duck](https://cyber-duck.co.uk)**
+- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
+- **[Jump24](https://jump24.co.uk)**
+- **[Redberry](https://redberry.international/laravel/)**
+- **[Active Logic](https://activelogic.com)**
+- **[byte5](https://byte5.de)**
+- **[OP.GG](https://op.gg)**
 
-### Step 7
-Start the example workflow inside the new terminal window.
+## Contributing
 
-```bash
-php artisan app:workflow
-```
+Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-### Step 8
-You can view the waterline dashboard via the mapped port.
+## Code of Conduct
 
-<img src="https://user-images.githubusercontent.com/1130888/233668485-b988e336-0462-4bbc-bb77-78c73df363b4.png" alt="image" width="500">
+In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-Add `/waterline/dashboard` to the URL e.g. `https://[your-codespace-name]-80.preview.app.github.dev/waterline/dashboard`
+## Security Vulnerabilities
 
-<img src="https://user-images.githubusercontent.com/1130888/233669600-3340ada6-5f73-4602-8d82-a81a9d43f883.png" alt="image" width="600">
+If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-### Step 9
-Run the workflow and activity tests.
+## License
 
-```bash
-php artisan test
-```
-
-That's it! You can now create and test workflows.
+The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).

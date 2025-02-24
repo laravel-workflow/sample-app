@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 
 if [ ! -z "$WWWUSER" ]; then
-    usermod -u $WWWUSER sail
+    usermod -u $WWWUSER laravel
 fi
+
+chown -R laravel:laravel /var/www/html
 
 if [ ! -d /.composer ]; then
     mkdir /.composer
@@ -11,7 +13,7 @@ fi
 chmod -R ugo+rw /.composer
 
 if [ $# -gt 0 ]; then
-    exec gosu $WWWUSER "$@"
+    exec gosu laravel "$@"
 else
     exec /usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf
 fi

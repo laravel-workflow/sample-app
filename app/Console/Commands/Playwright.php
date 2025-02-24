@@ -6,6 +6,7 @@ use App\Workflows\Playwright\CheckConsoleErrorsWorkflow;
 use Illuminate\Console\Command;
 use Workflow\WorkflowStub;
 
+
 class Playwright extends Command
 {
     /**

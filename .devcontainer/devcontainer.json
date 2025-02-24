@@ -1,26 +1,11 @@
-// https://aka.ms/devcontainer.json
 {
 	"name": "Existing Docker Compose (Extend)",
 	"dockerComposeFile": [
 		"../docker-compose.yml"
 	],
-	"service": "laravel.test",
+	"service": "laravel",
 	"workspaceFolder": "/var/www/html",
-	"settings": {},
-	"extensions": [
-        "editorconfig.editorconfig",
-        "ryannaddy.laravel-artisan",
-        "amiralizadeh9480.laravel-extra-intellisense",
-        "stef-k.laravel-goto-controller",
-        "codingyu.laravel-goto-view",
-        "mikestead.dotenv",
-        "christian-kohler.path-intellisense",
-        "esbenp.prettier-vscode",
-        "CoenraadS.bracket-pair-colorizer"
-	],
-	"remoteUser": "sail",
-    "postCreateCommand": "chown -R 1000:1000 /var/www/html && npm install && npx playwright install && composer install && php artisan key:generate && echo \"ASSET_URL=https://${CODESPACE_NAME}-80.${GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN}\" >> .env",
+	"remoteUser": "laravel",
+    "postCreateCommand": "php artisan key:generate && echo \"ASSET_URL=https://${CODESPACE_NAME}-80.${GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN}\" >> .env",
 	"forwardPorts": [80]
-	// "runServices": [],
-	// "shutdownAction": "none",
 }
