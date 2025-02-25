@@ -5,6 +5,7 @@ if [ ! -z "1000" ]; then
 fi
 
 chown -R laravel:laravel /var/www/html
+composer install --prefer-dist --no-progress --no-interaction
 
 if [ ! -d /.composer ]; then
     mkdir /.composer
