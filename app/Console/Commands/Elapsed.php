@@ -30,6 +30,7 @@ class Elapsed extends Command
         /**
          * See: https://laravel-workflow.com/docs/features/timers
          */
+
         $workflow = WorkflowStub::make(ElapsedTimeWorkflow::class);
         $workflow->start();
         while ($workflow->running());
