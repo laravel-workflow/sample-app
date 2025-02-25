@@ -20,7 +20,7 @@ class Init extends Command
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Initialize the Laravel Workflow Sample App';
 
     /**
      * Execute the console command.
@@ -33,37 +33,14 @@ class Init extends Command
         $this->info('Setting ASSET_URL...');
         $this->setAssetUrl();
 
+        $this->info('Updating README.md with Codespace URL...');
+        $this->updateReadme();
+
         $this->info('Installing npm dependencies...');
         Process::run('npm install');
 
         $this->info('Installing Playwright components...');
-
-        $totalSteps = 5;
-        $bar = $this->output->createProgressBar($totalSteps);
-        $bar->start();
-
-        $completedSteps = 0;
-        $components = 5;
-        $stepsPerComponent = $totalSteps / $components;
-
-        Process::run('npx playwright install', function (string $type, string $output) use ($bar, &$completedSteps, $stepsPerComponent) {
-            if ($type === 'out') {
-                if (preg_match('/\|\s+(\d+)%\s+of/', $output, $matches)) {
-                    $percent = (int) $matches[1];
-                    $progressWithinComponent = ($percent / 100) * $stepsPerComponent;
-                    $newProgress = min($completedSteps + (int)$progressWithinComponent, 100);
-                    $bar->setProgress($newProgress);
-                }
-
-                if (preg_match('/downloaded to/', $output)) {
-                    $completedSteps += $stepsPerComponent;
-                    $bar->setProgress($completedSteps);
-                }
-            }
-        });
-
-        $bar->finish();
-        $this->newLine();
+        $this->installPlaywright();
 
         $this->info('Running migrations...');
         Artisan::call('migrate');
@@ -92,6 +69,39 @@ class Init extends Command
     }
 
     /**
+     * Update README.md with the correct Codespace URL.
+     */
+    protected function updateReadme()
+    {
+        $codespaceName = env('CODESPACE_NAME');
+        $portDomain = env('GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN');
+
+        if (!$codespaceName || !$portDomain) {
+            $this->error('Missing required GitHub Codespaces environment variables.');
+            return;
+        }
+
+        $realUrl = "https://{$codespaceName}-80.{$portDomain}";
+
+        $readmeFile = base_path('README.md');
+        if (!file_exists($readmeFile)) {
+            $this->error('README.md file not found.');
+            return;
+        }
+
+        $readmeContents = file_get_contents($readmeFile);
+        $updatedReadme = preg_replace(
+            '/https:\/\/\[your-codespace-name\]-80\.preview\.app\.github\.dev/',
+            $realUrl,
+            $readmeContents
+        );
+
+        file_put_contents($readmeFile, $updatedReadme);
+
+        $this->info('README.md updated successfully.');
+    }
+
+    /**
      * Set a given key-value pair in the .env file.
      *
      * @param string $key
@@ -113,5 +123,38 @@ class Init extends Command
 
         file_put_contents($envFile, $envContents);
         return true;
+    }
+
+    /**
+     * Install Playwright components with progress tracking.
+     */
+    protected function installPlaywright()
+    {
+        $totalSteps = 5;
+        $bar = $this->output->createProgressBar($totalSteps);
+        $bar->start();
+
+        $completedSteps = 0;
+        $components = 5;
+        $stepsPerComponent = $totalSteps / $components;
+
+        Process::run('npx playwright install', function (string $type, string $output) use ($bar, &$completedSteps, $stepsPerComponent) {
+            if ($type === 'out') {
+                if (preg_match('/\|\s+(\d+)%\s+of/', $output, $matches)) {
+                    $percent = (int) $matches[1];
+                    $progressWithinComponent = ($percent / 100) * $stepsPerComponent;
+                    $newProgress = min($completedSteps + (int)$progressWithinComponent, 100);
+                    $bar->setProgress($newProgress);
+                }
+
+                if (preg_match('/downloaded to/', $output)) {
+                    $completedSteps += $stepsPerComponent;
+                    $bar->setProgress($completedSteps);
+                }
+            }
+        });
+
+        $bar->finish();
+        $this->newLine();
     }
 }

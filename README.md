@@ -50,11 +50,7 @@ php artisan app:workflow
 ```
 
 ### Step 9
-You can view the waterline dashboard via the mapped port.
-
-<img src="https://user-images.githubusercontent.com/1130888/233668485-b988e336-0462-4bbc-bb77-78c73df363b4.png" alt="image" width="500">
-
-Add `/waterline/dashboard` to the URL e.g. `https://[your-codespace-name]-80.preview.app.github.dev/waterline/dashboard`
+You can view the waterline dashboard at https://[your-codespace-name]-80.preview.app.github.dev/waterline/dashboard.
 
 <img src="https://user-images.githubusercontent.com/1130888/233669600-3340ada6-5f73-4602-8d82-a81a9d43f883.png" alt="image" width="600">
 
