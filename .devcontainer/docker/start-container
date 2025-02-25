@@ -4,11 +4,11 @@ if [ ! -z "$WWWUSER" ]; then
     usermod -u $WWWUSER laravel
 fi
 
-chown -R laravel:laravel /var/www/html
 npm install
-npx playwright install
 composer install
 php artisan key:generate
+exec gosu laravel npx playwright install
+chown -R laravel:laravel /var/www/html
 
 if [ ! -d /.composer ]; then
     mkdir /.composer
