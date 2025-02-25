@@ -1,13 +1,12 @@
 #!/usr/bin/env bash
 
-if [ ! -z "$WWWUSER" ]; then
-    usermod -u $WWWUSER laravel
+if [ ! -z "1000" ]; then
+    usermod -u 1000 laravel
 fi
 
 chown -R laravel:laravel /var/www/html
 npm install
 composer install
-php artisan key:generate
 
 if [ ! -d /.composer ]; then
     mkdir /.composer
@@ -16,7 +15,7 @@ fi
 chmod -R ugo+rw /.composer
 
 if [ $# -gt 0 ]; then
-    exec gosu laravel "$@"
+    exec gosu 1000 "$@"
 else
     exec /usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf
 fi

@@ -1,6 +1,5 @@
 FROM ubuntu:22.04
 
-ARG WWWGROUP
 ARG NODE_VERSION=18
 ARG POSTGRES_VERSION=15
 
@@ -45,8 +44,8 @@ RUN set -eux && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
     setcap "cap_net_bind_service=+ep" /usr/bin/php8.2 && \
-    groupadd --force -g $WWWGROUP laravel && \
-    useradd -ms /bin/bash --no-user-group -g $WWWGROUP -u 1337 laravel
+    groupadd --force -g 1000 laravel && \
+    useradd -ms /bin/bash --no-user-group -g 1000 -u 1337 laravel
 
 COPY start-container /usr/local/bin/start-container
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
