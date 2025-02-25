@@ -8,7 +8,6 @@ chown -R laravel:laravel /var/www/html
 npm install
 composer install
 php artisan key:generate
-exec gosu laravel npx playwright install
 
 if [ ! -d /.composer ]; then
     mkdir /.composer
