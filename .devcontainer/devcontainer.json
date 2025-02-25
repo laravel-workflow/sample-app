@@ -5,6 +5,7 @@
 	],
 	"service": "laravel",
 	"workspaceFolder": "/var/www/html",
+	"postCreateCommand": "echo \"ASSET_URL=https://${CODESPACE_NAME}-80.${GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN}\" >> .env",
 	"remoteUser": "laravel",
 	"forwardPorts": [80]
 }
