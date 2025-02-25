@@ -6,6 +6,5 @@
 	"service": "laravel",
 	"workspaceFolder": "/var/www/html",
 	"remoteUser": "laravel",
-    "postCreateCommand": "php artisan key:generate && echo \"ASSET_URL=https://${CODESPACE_NAME}-80.${GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN}\" >> .env",
 	"forwardPorts": [80]
 }
