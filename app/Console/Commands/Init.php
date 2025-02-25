@@ -33,9 +33,6 @@ class Init extends Command
         $this->info('Setting ASSET_URL...');
         $this->setAssetUrl();
 
-        $this->info('Running migrations...');
-        Artisan::call('migrate');
-
         $this->info('Installing npm dependencies...');
         Process::run('npm install');
 
@@ -67,6 +64,9 @@ class Init extends Command
 
         $bar->finish();
         $this->newLine();
+
+        $this->info('Running migrations...');
+        Artisan::call('migrate');
 
         $this->info('Done!');
     }
