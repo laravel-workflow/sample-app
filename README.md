@@ -17,11 +17,10 @@ Once it is done. You will see the editor and the terminal at the bottom.
 <img src="https://user-images.githubusercontent.com/1130888/233665550-1a4f2098-2919-4108-ac9f-bef1a9f2f47c.png" alt="image" width="400">
 
 ### Step 4
-Run the init command and migrations to create the necessary database tables.
+Run the init command to create the necessary database tables and dependencies.
 
 ```bash
 php artisan app:init
-php artisan migrate
 ```
 
 ### Step 5
