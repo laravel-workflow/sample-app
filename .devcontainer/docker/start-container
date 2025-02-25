@@ -5,6 +5,11 @@ if [ ! -z "$WWWUSER" ]; then
 fi
 
 chown -R laravel:laravel /var/www/html
+npm install
+npx playwright install
+composer install
+php artisan key:generate
+echo "ASSET_URL=https://${CODESPACE_NAME}-80.${GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN}" >> .env
 
 if [ ! -d /.composer ]; then
     mkdir /.composer
