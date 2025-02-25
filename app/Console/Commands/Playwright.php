@@ -27,6 +27,9 @@ class Playwright extends Command
      */
     public function handle()
     {
+        /**
+         * See: https://laravel-workflow.com/blog/automating-qa-with-playwright-and-laravel-workflow
+         */
         $workflow = WorkflowStub::make(CheckConsoleErrorsWorkflow::class);
         $workflow->start('https://example.com');
         while ($workflow->running());

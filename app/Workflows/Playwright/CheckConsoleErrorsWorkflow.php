@@ -5,6 +5,10 @@ namespace App\Workflows\Playwright;
 use Workflow\ActivityStub;
 use Workflow\Workflow;
 
+/**
+ * See: https://laravel-workflow.com/blog/automating-qa-with-playwright-and-laravel-workflow
+ */
+
 class CheckConsoleErrorsWorkflow extends Workflow
 {
     public function execute(string $url)
