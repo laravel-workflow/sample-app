@@ -1,6 +1,6 @@
 # Laravel Workflow Sample App
 
-This is a sample Laravel 11 application with example workflows that you can run inside a GitHub codespace.
+This is a sample Laravel 12 application with example workflows that you can run inside a GitHub codespace.
 
 ### Step 1
 Create a codespace from the main branch of this repo.
@@ -8,12 +8,11 @@ Create a codespace from the main branch of this repo.
 <img src="https://user-images.githubusercontent.com/1130888/233664377-f300ad50-5436-4bb8-b172-c52e12047264.png" alt="image" width="300">
 
 ### Step 2
-Wait for the codespace to build. This should take between 5 to 10 minutes.
+Once the codespace has been created, wait for the codespace to build. This should take between 5 to 10 minutes.
 
-<img src="https://user-images.githubusercontent.com/1130888/233664397-4ae156f3-f69b-406f-b6d4-4f9316684000.png" alt="image" width="500">
 
 ### Step 3
-Once the codespace has been created. You will see the editor and the terminal at the bottom.
+Once it is done. You will see the editor and the terminal at the bottom.
 
 <img src="https://user-images.githubusercontent.com/1130888/233665550-1a4f2098-2919-4108-ac9f-bef1a9f2f47c.png" alt="image" width="400">
 

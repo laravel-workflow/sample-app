@@ -1,13 +1,10 @@
-# For more information: https://laravel.com/docs/sail
-version: '3'
 services:
-    laravel.test:
+    laravel:
         build:
-            context: ./docker
+            context: ./.devcontainer/docker
             dockerfile: Dockerfile
             args:
                 WWWGROUP: '${WWWGROUP}'
-        image: sail-8.2/app
         extra_hosts:
             - 'host.docker.internal:host-gateway'
         ports:
@@ -15,13 +12,10 @@ services:
             - '${VITE_PORT:-5173}:${VITE_PORT:-5173}'
         environment:
             WWWUSER: '${WWWUSER}'
-            LARAVEL_SAIL: 1
-            XDEBUG_MODE: '${SAIL_XDEBUG_MODE:-off}'
-            XDEBUG_CONFIG: '${SAIL_XDEBUG_CONFIG:-client_host=host.docker.internal}'
         volumes:
             - '.:/var/www/html'
         networks:
-            - sail
+            - laravel
         depends_on:
             - mysql
             - redis
@@ -37,10 +31,10 @@ services:
             MYSQL_PASSWORD: '${DB_PASSWORD}'
             MYSQL_ALLOW_EMPTY_PASSWORD: 1
         volumes:
-            - 'sail-mysql:/var/lib/mysql'
-            - './docker/create-testing-database.sh:/docker-entrypoint-initdb.d/10-create-testing-database.sh'
+            - 'laravel-mysql:/var/lib/mysql'
+            - './.devcontainer/docker/create-testing-database.sh:/docker-entrypoint-initdb.d/10-create-testing-database.sh'
         networks:
-            - sail
+            - laravel
         healthcheck:
             test: ["CMD", "mysqladmin", "ping", "-p${DB_PASSWORD}"]
             retries: 3
@@ -50,18 +44,18 @@ services:
         ports:
             - '${FORWARD_REDIS_PORT:-6379}:6379'
         volumes:
-            - 'sail-redis:/data'
+            - 'laravel-redis:/data'
         networks:
-            - sail
+            - laravel
         healthcheck:
             test: ["CMD", "redis-cli", "ping"]
             retries: 3
             timeout: 5s
 networks:
-    sail:
+    laravel:
         driver: bridge
 volumes:
-    sail-mysql:
+    laravel-mysql:
         driver: local
-    sail-redis:
+    laravel-redis:
         driver: local
