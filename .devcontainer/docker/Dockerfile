@@ -36,6 +36,7 @@ RUN set -eux && \
         php8.2-zip php8.2-bcmath php8.2-soap php8.2-intl php8.2-readline \
         php8.2-ldap php8.2-mongodb php8.2-msgpack php8.2-igbinary php8.2-redis \
         php8.2-swoole php8.2-memcached php8.2-pcov php8.2-xdebug && \
+    curl -sLS https://getcomposer.org/installer | php -- --install-dir=/usr/bin/ --filename=composer && \
     apt-get install -y nodejs && \
     npm install -g npm && \
     apt-get install -y postgresql-client-$POSTGRES_VERSION && \
@@ -45,12 +46,7 @@ RUN set -eux && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
     setcap "cap_net_bind_service=+ep" /usr/bin/php8.2 && \
     groupadd --force -g $WWWGROUP laravel && \
-    useradd -ms /bin/bash --no-user-group -g $WWWGROUP -u 1337 laravel && \
-    npm install && \
-    npx playwright install && \
-    composer install && \
-    php artisan key:generate && \
-    echo "ASSET_URL=https://${CODESPACE_NAME}-80.${GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN}" >> .env
+    useradd -ms /bin/bash --no-user-group -g $WWWGROUP -u 1337 laravel
 
 COPY start-container /usr/local/bin/start-container
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
