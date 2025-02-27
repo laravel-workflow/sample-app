@@ -72,6 +72,14 @@ return [
             'after_commit' => false,
         ],
 
+        'shared' => [
+            'driver' => 'redis',
+            'connection' => env('SHARED_REDIS_QUEUE_CONNECTION', 'default'),
+            'queue' => env('SHARED_REDIS_QUEUE', 'default'),
+            'retry_after' => (int) env('SHARED_REDIS_QUEUE_RETRY_AFTER', 90),
+            'block_for' => null,
+            'after_commit' => false,
+        ],
     ],
 
     /*

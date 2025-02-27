@@ -62,6 +62,26 @@ return [
             ]) : [],
         ],
 
+        'shared' => [
+            'driver' => 'mysql',
+            'url' => env('SHARED_DB_URL'),
+            'host' => env('SHARED_DB_HOST', '127.0.0.1'),
+            'port' => env('SHARED_DB_PORT', '3306'),
+            'database' => env('SHARED_DB_DATABASE', 'laravel'),
+            'username' => env('SHARED_DB_USERNAME', 'root'),
+            'password' => env('SHARED_DB_PASSWORD', ''),
+            'unix_socket' => env('SHARED_DB_SOCKET', ''),
+            'charset' => env('SHARED_DB_CHARSET', 'utf8mb4'),
+            'collation' => env('SHARED_DB_COLLATION', 'utf8mb4_unicode_ci'),
+            'prefix' => '',
+            'prefix_indexes' => true,
+            'strict' => true,
+            'engine' => null,
+            'options' => extension_loaded('pdo_mysql') ? array_filter([
+                PDO::MYSQL_ATTR_SSL_CA => env('SHARED_MYSQL_ATTR_SSL_CA'),
+            ]) : [],
+        ],
+
         'mariadb' => [
             'driver' => 'mariadb',
             'url' => env('DB_URL'),
@@ -169,6 +189,14 @@ return [
             'database' => env('REDIS_CACHE_DB', '1'),
         ],
 
+        'shared' => [
+            'url' => env('SHARED_REDIS_URL'),
+            'host' => env('SHARED_REDIS_HOST', '127.0.0.1'),
+            'username' => env('SHARED_REDIS_USERNAME'),
+            'password' => env('SHARED_REDIS_PASSWORD'),
+            'port' => env('SHARED_REDIS_PORT', '6379'),
+            'database' => env('SHARED_REDIS_CACHE_DB', '1'),
+        ],
     ],
 
 ];
