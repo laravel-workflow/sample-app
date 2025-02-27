@@ -34,6 +34,7 @@ services:
         depends_on:
             - mysql
             - redis
+        command: ["php", "artisan", "queue:work", "shared", "--queue=activity"]
     mysql:
         image: 'mysql/mysql-server:8.0'
         ports:
