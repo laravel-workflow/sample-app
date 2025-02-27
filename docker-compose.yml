@@ -3,8 +3,6 @@ services:
         build:
             context: ./.devcontainer/docker
             dockerfile: Dockerfile
-            args:
-                WWWGROUP: '${WWWGROUP}'
         extra_hosts:
             - 'host.docker.internal:host-gateway'
         ports:
@@ -21,8 +19,6 @@ services:
         build:
             context: ./.devcontainer/docker
             dockerfile: Dockerfile
-            args:
-                WWWGROUP: '${WWWGROUP}'
         extra_hosts:
             - 'host.docker.internal:host-gateway'
         ports:

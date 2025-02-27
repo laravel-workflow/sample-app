@@ -195,8 +195,9 @@ return [
             'username' => env('SHARED_REDIS_USERNAME'),
             'password' => env('SHARED_REDIS_PASSWORD'),
             'port' => env('SHARED_REDIS_PORT', '6379'),
-            'database' => env('SHARED_REDIS_CACHE_DB', '1'),
+            'database' => env('SHARED_REDIS_DB', '0'),
         ],
+
     ],
 
 ];
