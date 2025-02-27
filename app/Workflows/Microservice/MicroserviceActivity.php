@@ -8,4 +8,5 @@ use Workflow\Activity;
 
 class MicroserviceActivity extends Activity
 {
+    public $queue = 'activity';
 }
