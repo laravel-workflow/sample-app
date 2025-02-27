@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Schema;
 
 final class CreateWorkflowsTable extends Migration
 {
+    protected $connection = 'shared';
+
     /**
      * Run the migrations.
      */

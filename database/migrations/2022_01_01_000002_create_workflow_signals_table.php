@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Schema;
 
 final class CreateWorkflowSignalsTable extends Migration
 {
+    protected $connection = 'shared';
+
     /**
      * Run the migrations.
      */
