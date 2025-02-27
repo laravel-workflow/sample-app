@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Schema;
 
 final class CreateWorkflowTimersTable extends Migration
 {
+    protected $connection = 'shared';
+
     /**
      * Run the migrations.
      */
