@@ -62,3 +62,17 @@ php artisan test
 ```
 
 That's it! You can now create and test workflows.
+
+#### More Workflows to Explore
+
+In addition to the basic example workflow, you can try these other workflows included in this sample app:
+
+* `php artisan app:elapsed` – Demonstrates how to correctly track start and end times to measure execution duration.
+
+* `php artisan app:microservice` – A fully working example of a workflow that spans multiple Laravel applications using a shared database and queue.
+
+* `php artisan app:playwright` – Runs a Playwright automation, captures a WebM video, encodes it to MP4 using FFmpeg, and then cleans up the WebM file.
+
+* `php artisan app:webhook` – Showcases how to use the built-in webhook system for triggering workflows externally.
+
+Try them out to see Laravel Workflow in action across different use cases!
