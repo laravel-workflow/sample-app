@@ -17,6 +17,23 @@ services:
         depends_on:
             - mysql
             - redis
+    microservice:
+        build:
+            context: ./.devcontainer/docker
+            dockerfile: Dockerfile
+            args:
+                WWWGROUP: '${WWWGROUP}'
+        extra_hosts:
+            - 'host.docker.internal:host-gateway'
+        ports:
+            - '8001:80'
+        volumes:
+            - './microservice:/var/www/html'
+        networks:
+            - laravel
+        depends_on:
+            - mysql
+            - redis
     mysql:
         image: 'mysql/mysql-server:8.0'
         ports:
