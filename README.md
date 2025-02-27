@@ -63,6 +63,8 @@ php artisan test
 
 That's it! You can now create and test workflows.
 
+----
+
 #### More Workflows to Explore
 
 In addition to the basic example workflow, you can try these other workflows included in this sample app:
