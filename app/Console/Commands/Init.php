@@ -27,8 +27,8 @@ class Init extends Command
      */
     public function handle()
     {
-        $this->info('Setting APP_KEY...');
-        Artisan::call('key:generate');
+        // $this->info('Setting APP_KEY...');
+        // Artisan::call('key:generate');
 
         $this->info('Setting ASSET_URL...');
         $this->setAssetUrl();
