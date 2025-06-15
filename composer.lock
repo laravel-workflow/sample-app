@@ -2019,30 +2019,29 @@
         },
         {
             "name": "laravel-workflow/laravel-workflow",
-            "version": "1.0.32",
+            "version": "1.0.34",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel-workflow/laravel-workflow.git",
-                "reference": "6433619d8bd2e6ee55c64de94644287915095e4b"
+                "reference": "a0d3ff623dbda9faf546df92d58536f16e0feab8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel-workflow/laravel-workflow/zipball/6433619d8bd2e6ee55c64de94644287915095e4b",
-                "reference": "6433619d8bd2e6ee55c64de94644287915095e4b",
+                "url": "https://api.github.com/repos/laravel-workflow/laravel-workflow/zipball/a0d3ff623dbda9faf546df92d58536f16e0feab8",
+                "reference": "a0d3ff623dbda9faf546df92d58536f16e0feab8",
                 "shasum": ""
             },
             "require": {
                 "laravel/framework": "^9.0|^10.0|^11.0|^12.0",
-                "php": "^8.0.2",
+                "php": "^8.1",
                 "react/promise": "^2.9|^3.0",
-                "spatie/laravel-model-states": "^2.1"
+                "spatie/laravel-model-states": "^2.0"
             },
             "require-dev": {
-                "orchestra/testbench": "^7.1",
-                "phpstan/phpstan": "^1.9",
-                "rector/rector": "^0.15.1",
+                "orchestra/testbench": "^8.0",
+                "phpstan/phpstan": "^2.0",
                 "scrutinizer/ocular": "dev-master",
-                "symplify/easy-coding-standard": "^11.1"
+                "symplify/easy-coding-standard": "^11.0"
             },
             "type": "library",
             "extra": {
@@ -2070,9 +2069,9 @@
             "description": "Durable workflow engine that allows users to write long running persistent distributed workflows (orchestrations) in PHP powered by Laravel queues.",
             "support": {
                 "issues": "https://github.com/laravel-workflow/laravel-workflow/issues",
-                "source": "https://github.com/laravel-workflow/laravel-workflow/tree/1.0.32"
+                "source": "https://github.com/laravel-workflow/laravel-workflow/tree/1.0.34"
             },
-            "time": "2025-02-22T23:02:22+00:00"
+            "time": "2025-04-12T21:54:08+00:00"
         },
         {
             "name": "laravel-workflow/waterline",
