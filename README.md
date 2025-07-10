@@ -77,4 +77,6 @@ In addition to the basic example workflow, you can try these other workflows inc
 
 * `php artisan app:webhook` – Showcases how to use the built-in webhook system for triggering workflows externally.
 
+* `php artisan app:prism` - NEW! Uses PrismPHP + Laravel Workflow to build a durable AI agent loop. It asks an LLM to generate user profiles and hobbies, validates the result, and retries until the data meets business rules.
+
 Try them out to see Laravel Workflow in action across different use cases!
