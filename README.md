@@ -17,44 +17,37 @@ Once it is done. You will see the editor and the terminal at the bottom.
 <img src="https://user-images.githubusercontent.com/1130888/233665550-1a4f2098-2919-4108-ac9f-bef1a9f2f47c.png" alt="image" width="400">
 
 ### Step 4
-Run composer install.
-
-```bash
-composer install
-```
-
-### Step 5
 Run the init command to setup the app, install extra dependencies and run the migrations.
 
 ```bash
 php artisan app:init
 ```
 
-### Step 6
+### Step 5
 Start the queue worker. This will enable the processing of workflows and activities.
 
 ```bash
 php artisan queue:work
 ```
 
-### Step 7
+### Step 6
 Create a new terminal window.
 
 <img src="https://user-images.githubusercontent.com/1130888/233666917-029247c7-9e6c-46de-b304-27473fd34517.png" alt="image" width="200">
 
-### Step 8
+### Step 7
 Start the example workflow inside the new terminal window.
 
 ```bash
 php artisan app:workflow
 ```
 
-### Step 9
+### Step 8
 You can view the waterline dashboard at https://[your-codespace-name]-80.preview.app.github.dev/waterline/dashboard.
 
 <img src="https://user-images.githubusercontent.com/1130888/233669600-3340ada6-5f73-4602-8d82-a81a9d43f883.png" alt="image" width="600">
 
-### Step 10
+### Step 9
 Run the workflow and activity tests.
 
 ```bash
@@ -125,4 +118,3 @@ An AI client would typically:
 3. Receive a `workflow_id` in the response
 4. Poll `get_workflow_result` with the `workflow_id` until status is `WorkflowCompletedStatus`
 5. Read the `output` field for the workflow result
-
