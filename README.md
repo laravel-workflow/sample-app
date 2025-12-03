@@ -80,3 +80,49 @@ In addition to the basic example workflow, you can try these other workflows inc
 * `php artisan app:prism` - NEW! Uses PrismPHP + Laravel Workflow to build a durable AI agent loop. It asks an LLM to generate user profiles and hobbies, validates the result, and retries until the data meets business rules.
 
 Try them out to see Laravel Workflow in action across different use cases!
+
+----
+
+#### MCP Integration for AI Clients
+
+This sample app includes an MCP (Model Context Protocol) server that allows AI clients (ChatGPT, Claude, Cursor, etc.) to start and monitor Laravel Workflows.
+
+##### Endpoint
+
+The MCP server is available at: `/mcp/workflows`
+
+##### Available Tools
+
+| Tool | Description |
+|------|-------------|
+| `list_workflows` | Discover available workflows and view recent workflow runs |
+| `start_workflow` | Start a workflow asynchronously and get a workflow ID |
+| `get_workflow_result` | Check workflow status and retrieve output when completed |
+
+##### Configuration
+
+Available workflows are defined in `config/workflow_mcp.php`. By default, the following workflows are exposed:
+
+- `simple` → `App\Workflows\Simple\SimpleWorkflow`
+- `prism` → `App\Workflows\Prism\PrismWorkflow`
+
+To add more workflows, update the config file:
+
+```php
+'workflows' => [
+    'simple' => App\Workflows\Simple\SimpleWorkflow::class,
+    'prism' => App\Workflows\Prism\PrismWorkflow::class,
+    'my_workflow' => App\Workflows\MyWorkflow::class,
+],
+```
+
+##### Example Usage
+
+An AI client would typically:
+
+1. Call `list_workflows` to see available workflows
+2. Call `start_workflow` with `{"workflow": "simple"}` 
+3. Receive a `workflow_id` in the response
+4. Poll `get_workflow_result` with the `workflow_id` until status is `WorkflowCompletedStatus`
+5. Read the `output` field for the workflow result
+

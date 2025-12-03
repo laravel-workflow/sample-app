@@ -13,6 +13,7 @@
         "laravel-workflow/laravel-workflow": "^1.0",
         "laravel-workflow/waterline": "^1.0",
         "laravel/framework": "^12.0",
+        "laravel/mcp": "^0.4.0",
         "laravel/tinker": "^2.10.1",
         "prism-php/prism": "^0.79.0"
     },

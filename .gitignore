@@ -19,5 +19,6 @@ yarn-error.log
 /.fleet
 /.idea
 /.nova
-/.vscode
+/.vscode/*
+!/.vscode/mcp.json
 /.zed

@@ -1,0 +1,8 @@
+{
+  "servers": {
+    "laravel-workflow": {
+      "type": "http",
+      "url": "http://localhost/mcp/workflows"
+    }
+  }
+}
