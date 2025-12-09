@@ -4,16 +4,16 @@ declare(strict_types=1);
 
 namespace App\Workflows\Simple;
 
-use Workflow\ActivityStub;
 use Workflow\Workflow;
+use function Workflow\activity;
 
 class SimpleWorkflow extends Workflow
 {
     public function execute()
     {
-        $result = yield ActivityStub::make(SimpleActivity::class);
+        $result = yield activity(SimpleActivity::class);
 
-        $otherResult = yield ActivityStub::make(SimpleOtherActivity::class, 'other');
+        $otherResult = yield activity(SimpleOtherActivity::class, 'other');
 
         return 'workflow_' . $result . '_' . $otherResult;
     }

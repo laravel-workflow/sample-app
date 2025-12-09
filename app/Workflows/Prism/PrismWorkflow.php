@@ -2,16 +2,16 @@
 
 namespace App\Workflows\Prism;
 
-use Workflow\ActivityStub;
 use Workflow\Workflow;
+use function Workflow\activity;
 
 class PrismWorkflow extends Workflow
 {
     public function execute()
     {
         do {
-            $user = yield ActivityStub::make(GenerateUserActivity::class);
-            $valid = yield ActivityStub::make(ValidateUserActivity::class, $user);
+            $user = yield activity(GenerateUserActivity::class);
+            $valid = yield activity(ValidateUserActivity::class, $user);
         } while (!$valid);
 
         return $user;

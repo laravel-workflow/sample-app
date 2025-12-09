@@ -4,11 +4,10 @@ declare(strict_types=1);
 
 namespace App\Workflows\Webhooks;
 
-use Workflow\ActivityStub;
 use Workflow\SignalMethod;
 use Workflow\Webhook;
 use Workflow\Workflow;
-use Workflow\WorkflowStub;
+use function Workflow\{activity, await};
 
 /**
  * See: https://laravel-workflow.com/docs/features/webhooks
@@ -28,9 +27,9 @@ class WebhookWorkflow extends Workflow
 
     public function execute($message)
     {
-        WorkflowStub::await(fn () => $this->ready);
+        yield await(fn () => $this->ready);
 
-        $result = yield ActivityStub::make(WebhookActivity::class, $message);
+        $result = yield activity(WebhookActivity::class, $message);
 
         return $result;
     }
