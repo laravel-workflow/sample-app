@@ -1107,16 +1107,16 @@
         },
         {
             "name": "laravel-workflow/laravel-workflow",
-            "version": "1.0.53",
+            "version": "1.0.55",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel-workflow/laravel-workflow.git",
-                "reference": "d8fd01aaa1c859fa658a01f6ffb52329e20c0213"
+                "reference": "0059e9a00e63b0f6d85c15c3dd646ad8f524580a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel-workflow/laravel-workflow/zipball/d8fd01aaa1c859fa658a01f6ffb52329e20c0213",
-                "reference": "d8fd01aaa1c859fa658a01f6ffb52329e20c0213",
+                "url": "https://api.github.com/repos/laravel-workflow/laravel-workflow/zipball/0059e9a00e63b0f6d85c15c3dd646ad8f524580a",
+                "reference": "0059e9a00e63b0f6d85c15c3dd646ad8f524580a",
                 "shasum": ""
             },
             "require": {
@@ -1159,9 +1159,9 @@
             "description": "Durable workflow engine that allows users to write long running persistent distributed workflows (orchestrations) in PHP powered by Laravel queues.",
             "support": {
                 "issues": "https://github.com/laravel-workflow/laravel-workflow/issues",
-                "source": "https://github.com/laravel-workflow/laravel-workflow/tree/1.0.53"
+                "source": "https://github.com/laravel-workflow/laravel-workflow/tree/1.0.55"
             },
-            "time": "2025-12-09T12:05:13+00:00"
+            "time": "2026-02-01T21:11:21+00:00"
         },
         {
             "name": "laravel-workflow/waterline",
