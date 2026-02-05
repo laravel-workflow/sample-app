@@ -30,11 +30,11 @@ RUN set -eux && \
         > /etc/apt/sources.list.d/yarn.list && \
     apt-get update && \
     apt-get install -y \
-        php8.2-cli php8.2-dev php8.2-pgsql php8.2-sqlite3 php8.2-gd php8.2-imagick \
-        php8.2-curl php8.2-imap php8.2-mysql php8.2-mbstring php8.2-xml \
-        php8.2-zip php8.2-bcmath php8.2-soap php8.2-intl php8.2-readline \
-        php8.2-ldap php8.2-mongodb php8.2-msgpack php8.2-igbinary php8.2-redis \
-        php8.2-swoole php8.2-memcached php8.2-pcov php8.2-xdebug && \
+        php8.4-cli php8.4-dev php8.4-pgsql php8.4-sqlite3 php8.4-gd php8.4-imagick \
+        php8.4-curl php8.4-imap php8.4-mysql php8.4-mbstring php8.4-xml \
+        php8.4-zip php8.4-bcmath php8.4-soap php8.4-intl php8.4-readline \
+        php8.4-ldap php8.4-mongodb php8.4-msgpack php8.4-igbinary php8.4-redis \
+        php8.4-swoole php8.4-memcached php8.4-pcov php8.4-xdebug && \
     curl -sLS https://getcomposer.org/installer | php -- --install-dir=/usr/bin/ --filename=composer && \
     apt-get install -y nodejs && \
     npm install -g npm && \
@@ -43,13 +43,13 @@ RUN set -eux && \
     apt-get -y autoremove && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
-    setcap "cap_net_bind_service=+ep" /usr/bin/php8.2 && \
+    setcap "cap_net_bind_service=+ep" /usr/bin/php8.4 && \
     groupadd --force -g 1000 laravel && \
     useradd -ms /bin/bash --no-user-group -g 1000 -u 1337 laravel
 
 COPY start-container /usr/local/bin/start-container
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-COPY php.ini /etc/php/8.2/cli/conf.d/99-laravel.ini
+COPY php.ini /etc/php/8.4/cli/conf.d/99-laravel.ini
 
 RUN chmod +x /usr/local/bin/start-container
 
