@@ -12,10 +12,10 @@
         "php": "^8.4",
         "laravel-workflow/laravel-workflow": "^1.0",
         "laravel-workflow/waterline": "^1.0",
+        "laravel/ai": "^0.1.2",
         "laravel/framework": "^12.0",
         "laravel/mcp": "^0.4.0",
-        "laravel/tinker": "^2.10.1",
-        "prism-php/prism": "^0.79.0"
+        "laravel/tinker": "^2.10.1"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
