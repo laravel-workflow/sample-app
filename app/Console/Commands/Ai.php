@@ -31,19 +31,22 @@ class Ai extends Command
         $workflow->start();
         $workflow->send('Hello, AI! What can you do?');
 
-        sleep(8);
-
-        $message = $workflow->receive();
+        $message = null;
+        do {
+            $message = $workflow->receive();
+            sleep(2);
+        } while ($message === null);
 
         $this->info($message);
-
-        sleep(2);
+        $lastMessage = $message;
 
         $workflow->send('Book a hotel');
 
-        sleep(8);
-
-        $message = $workflow->receive();
+        $message = null;
+        do {
+            $message = $workflow->receive();
+            sleep(2);
+        } while ($message === null || $message === $lastMessage);
 
         $this->info($message);
     }
