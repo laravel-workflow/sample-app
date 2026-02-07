@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "brick/math",
-            "version": "0.14.6",
+            "version": "0.14.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/brick/math.git",
-                "reference": "32498d5e1897e7642c0b961ace2df6d7dc9a3bc3"
+                "reference": "07ff363b16ef8aca9692bba3be9e73fe63f34e50"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/brick/math/zipball/32498d5e1897e7642c0b961ace2df6d7dc9a3bc3",
-                "reference": "32498d5e1897e7642c0b961ace2df6d7dc9a3bc3",
+                "url": "https://api.github.com/repos/brick/math/zipball/07ff363b16ef8aca9692bba3be9e73fe63f34e50",
+                "reference": "07ff363b16ef8aca9692bba3be9e73fe63f34e50",
                 "shasum": ""
             },
             "require": {
@@ -56,7 +56,7 @@
             ],
             "support": {
                 "issues": "https://github.com/brick/math/issues",
-                "source": "https://github.com/brick/math/tree/0.14.6"
+                "source": "https://github.com/brick/math/tree/0.14.7"
             },
             "funding": [
                 {
@@ -64,7 +64,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-02-05T07:59:58+00:00"
+            "time": "2026-02-07T10:57:35+00:00"
         },
         {
             "name": "carbonphp/carbon-doctrine-types",
@@ -1107,16 +1107,16 @@
         },
         {
             "name": "laravel-workflow/laravel-workflow",
-            "version": "1.0.56",
+            "version": "1.0.57",
             "source": {
                 "type": "git",
                 "url": "https://github.com/durable-workflow/workflow.git",
-                "reference": "0aad1aec469bd0f9a05fce245d4598ca817362cb"
+                "reference": "414c6a69d8724f87899d6384a26fe7a4ad6ffc26"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/durable-workflow/workflow/zipball/0aad1aec469bd0f9a05fce245d4598ca817362cb",
-                "reference": "0aad1aec469bd0f9a05fce245d4598ca817362cb",
+                "url": "https://api.github.com/repos/durable-workflow/workflow/zipball/414c6a69d8724f87899d6384a26fe7a4ad6ffc26",
+                "reference": "414c6a69d8724f87899d6384a26fe7a4ad6ffc26",
                 "shasum": ""
             },
             "require": {
@@ -1159,9 +1159,9 @@
             "description": "Durable workflow engine that allows users to write long running persistent distributed workflows (orchestrations) in PHP powered by Laravel queues.",
             "support": {
                 "issues": "https://github.com/durable-workflow/workflow/issues",
-                "source": "https://github.com/durable-workflow/workflow/tree/1.0.56"
+                "source": "https://github.com/durable-workflow/workflow/tree/1.0.57"
             },
-            "time": "2026-02-02T02:56:54+00:00"
+            "time": "2026-02-07T15:56:59+00:00"
         },
         {
             "name": "laravel-workflow/waterline",
@@ -1224,16 +1224,16 @@
         },
         {
             "name": "laravel/ai",
-            "version": "v0.1.2",
+            "version": "v0.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/ai.git",
-                "reference": "26135b487a8681326162e9ebe350217b85192dba"
+                "reference": "457099159a0d14e6d208f16fd50d97016326dddc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/ai/zipball/26135b487a8681326162e9ebe350217b85192dba",
-                "reference": "26135b487a8681326162e9ebe350217b85192dba",
+                "url": "https://api.github.com/repos/laravel/ai/zipball/457099159a0d14e6d208f16fd50d97016326dddc",
+                "reference": "457099159a0d14e6d208f16fd50d97016326dddc",
                 "shasum": ""
             },
             "require": {
@@ -1286,7 +1286,7 @@
                 "issues": "https://github.com/laravel/ai/issues",
                 "source": "https://github.com/laravel/ai"
             },
-            "time": "2026-02-05T17:55:12+00:00"
+            "time": "2026-02-06T12:49:31+00:00"
         },
         {
             "name": "laravel/framework",
