@@ -8,6 +8,8 @@ class BookHotelActivity extends Activity
 {
     public function execute()
     {
-        error_log('Booking hotel...');
+        $id = random_int(100000, 999999);
+        error_log('Booking hotel... id ' . $id);
+        return $id;
     }
 }

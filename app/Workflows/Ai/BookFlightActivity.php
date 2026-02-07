@@ -8,6 +8,8 @@ class BookFlightActivity extends Activity
 {
     public function execute()
     {
-        error_log('Booking flight...');
+        $id = random_int(100000, 999999);
+        error_log('Booking flight... id ' . $id);
+        return $id;
     }
 }

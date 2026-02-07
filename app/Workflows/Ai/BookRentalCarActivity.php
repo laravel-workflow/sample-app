@@ -8,6 +8,8 @@ class BookRentalCarActivity extends Activity
 {
     public function execute()
     {
-        error_log('Booking rental car...');
+        $id = random_int(100000, 999999);
+        error_log('Booking rental car... id ' . $id);
+        return $id;
     }
 }

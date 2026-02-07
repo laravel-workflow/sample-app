@@ -70,7 +70,6 @@ class AiWorkflow extends Workflow
             throw $th;
         }
 
-
         return $messages;
     }
 }

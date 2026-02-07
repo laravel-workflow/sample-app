@@ -38,7 +38,6 @@ class Ai extends Command
         } while ($message === null);
 
         $this->info($message);
-        $lastMessage = $message;
 
         $workflow->send('Book a hotel');
 
@@ -46,7 +45,7 @@ class Ai extends Command
         do {
             $message = $workflow->receive();
             sleep(2);
-        } while ($message === null || $message === $lastMessage);
+        } while ($message === null);
 
         $this->info($message);
     }
