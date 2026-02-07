@@ -38,10 +38,13 @@ class AiWorkflow extends Workflow
                 if (is_array($data) && isset($data['type'])) {
                     if ($data['type'] === 'book_hotel') {
                         $result = yield activity(BookHotelActivity::class, $data['hotel_name'], $data['check_in_date'], $data['check_out_date'], (int) $data['guests']);
+                        $this->addCompensation(fn () => activity(CancelHotelBookingActivity::class, $result['booking_id']));
                     } elseif ($data['type'] === 'book_flight') {
                         $result = yield activity(BookFlightActivity::class, $data['origin'], $data['destination'], $data['departure_date']);
+                        $this->addCompensation(fn () => activity(CancelFlightBookingActivity::class, $result['booking_id']));
                     } elseif ($data['type'] === 'book_rental_car') {
                         $result = yield activity(BookRentalCarActivity::class, $data['pickup_location'], $data['pickup_date'], $data['return_date']);
+                        $this->addCompensation(fn () => activity(CancelRentalCarBookingActivity::class, $result['booking_id']));
                     }
 
                     $messages[] = new AssistantMessage($result);
