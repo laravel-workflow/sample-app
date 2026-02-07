@@ -13,7 +13,7 @@ class Ai extends Command
      *
      * @var string
      */
-    protected $signature = 'app:ai';
+    protected $signature = 'app:ai {--inject-failure= : Inject failure into a booking activity (hotel, flight, car)}';
 
     /**
      * The console command description.
@@ -27,34 +27,54 @@ class Ai extends Command
      */
     public function handle()
     {
+        $injectFailure = $this->option('inject-failure');
+
         $workflow = WorkflowStub::make(AiWorkflow::class);
-        $workflow->start();
+        $workflow->start($injectFailure);
+
         $workflow->send('Hello, AI! What can you do?');
 
-        $message = null;
-        do {
-            $message = $workflow->receive();
-            sleep(2);
-        } while ($message === null);
-
+        $message = $this->receiveMessage($workflow);
+        if ($message === null) {
+            $this->error('Timed out waiting for AI response.');
+            return 1;
+        }
         $this->info($message);
 
-        $workflow->send('Book the Grand Hotel in Paris for 2 guests, checking in 2026-03-15 and checking out 2026-03-20.');
+        $workflow->send(
+            'Book the Grand Hotel in Paris for 2 guests, checking in 2026-03-15 and checking out 2026-03-20. '
+            . 'Also book a flight from New York to Paris departing 2026-03-15. '
+            . 'Also book a rental car in Paris from 2026-03-15 to 2026-03-20.'
+        );
 
-        $message = null;
-        do {
+        // Expect: AI response + 3 booking confirmations
+        for ($i = 0; $i < 4; $i++) {
+            $message = $this->receiveMessage($workflow);
+            if ($message === null) {
+                $this->error('Workflow did not complete — a booking may have failed.');
+                return 1;
+            }
+            $this->info($message);
+        }
+
+        $this->info('All bookings completed. Workflow finished!');
+        return 0;
+    }
+
+    /**
+     * Poll the workflow for the next outbox message.
+     */
+    private function receiveMessage($workflow, int $timeout = 120): ?string
+    {
+        $elapsed = 0;
+        while ($elapsed < $timeout) {
             $message = $workflow->receive();
+            if ($message !== null) {
+                return $message;
+            }
             sleep(2);
-        } while ($message === null);
-
-        $this->info($message);
-
-        $message = null;
-        do {
-            $message = $workflow->receive();
-            sleep(2);
-        } while ($message === null);
-
-        $this->info($message);
+            $elapsed += 2;
+        }
+        return null;
     }
 }
