@@ -2,6 +2,7 @@
 
 namespace App\Ai\Agents;
 
+use App\Ai\Tools\BookHotel;
 use Illuminate\Contracts\JsonSchema\JsonSchema;
 use Laravel\Ai\Contracts\Agent;
 use Laravel\Ai\Contracts\Conversational;
@@ -49,7 +50,9 @@ class TravelAgent implements Agent, Conversational, HasTools, HasStructuredOutpu
      */
     public function tools(): iterable
     {
-        return [];
+        return [
+            new BookHotel(),
+        ];
     }
 
     /**

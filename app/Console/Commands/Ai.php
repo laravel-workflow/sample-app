@@ -39,7 +39,7 @@ class Ai extends Command
 
         $this->info($message);
 
-        $workflow->send('Book a hotel');
+        $workflow->send('Book the hotel with name: Grand Hotel');
 
         $message = null;
         do {
