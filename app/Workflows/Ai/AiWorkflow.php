@@ -23,9 +23,7 @@ class AiWorkflow extends Workflow
     #[UpdateMethod]
     public function receive()
     {
-        if ($this->outbox->hasUnsent()) {
-            return $this->outbox->nextUnsent();
-        }
+        return $this->outbox->nextUnsent();
     }
 
     public function execute()
