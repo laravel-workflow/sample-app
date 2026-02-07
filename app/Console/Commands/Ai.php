@@ -39,7 +39,15 @@ class Ai extends Command
 
         $this->info($message);
 
-        $workflow->send('Book the hotel with name: Grand Hotel');
+        $workflow->send('Book the Grand Hotel in Paris for 2 guests, checking in 2026-03-15 and checking out 2026-03-20.');
+
+        $message = null;
+        do {
+            $message = $workflow->receive();
+            sleep(2);
+        } while ($message === null);
+
+        $this->info($message);
 
         $message = null;
         do {
