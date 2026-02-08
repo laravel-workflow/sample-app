@@ -1,4 +1,4 @@
-# Laravel Workflow Sample App
+# Durable Workflow Sample App
 
 This is a sample Laravel 12 application with example workflows that you can run inside a GitHub codespace.
 
@@ -70,15 +70,17 @@ In addition to the basic example workflow, you can try these other workflows inc
 
 * `php artisan app:webhook` – Showcases how to use the built-in webhook system for triggering workflows externally.
 
-* `php artisan app:prism` - NEW! Uses PrismPHP + Laravel Workflow to build a durable AI agent loop. It asks an LLM to generate user profiles and hobbies, validates the result, and retries until the data meets business rules.
+* `php artisan app:prism` - Uses Prism to build a durable AI agent loop. It asks an LLM to generate user profiles and hobbies, validates the result, and retries until the data meets business rules.
 
-Try them out to see Laravel Workflow in action across different use cases!
+* `php artisan app:ai` - NEW! Uses Laravel AI SDK to build a durable travel agent. The agent asks questions and books hotels, flights, and rental cars. If any errors occur, the workflow ensures all bookings are canceled.
+
+Try them out to see workflows in action across different use cases!
 
 ----
 
 #### MCP Integration for AI Clients
 
-This sample app includes an MCP (Model Context Protocol) server that allows AI clients (ChatGPT, Claude, Cursor, etc.) to start and monitor Laravel Workflows.
+This sample app includes an MCP (Model Context Protocol) server that allows AI clients (ChatGPT, Claude, Cursor, etc.) to start and monitor workflows.
 
 ##### Endpoint
 
