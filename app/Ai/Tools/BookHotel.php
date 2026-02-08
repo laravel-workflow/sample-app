@@ -6,13 +6,10 @@ use Illuminate\Contracts\JsonSchema\JsonSchema;
 use Laravel\Ai\Contracts\Tool;
 use Laravel\Ai\Tools\Request;
 use Stringable;
-use Workflow\WorkflowStub;
 
 class BookHotel implements Tool
 {
-    public function __construct(
-        private readonly int $workflowId,
-    ) {}
+    public static array $pending = [];
 
     public function description(): Stringable|string
     {
@@ -21,14 +18,13 @@ class BookHotel implements Tool
 
     public function handle(Request $request): Stringable|string
     {
-        $workflow = WorkflowStub::load($this->workflowId);
-        $workflow->send(json_encode([
+        self::$pending[] = [
             'type' => 'book_hotel',
             'hotel_name' => $request['hotel_name'],
             'check_in_date' => $request['check_in_date'],
             'check_out_date' => $request['check_out_date'],
             'guests' => (int) $request['guests'],
-        ]));
+        ];
 
         return 'Booking hotel: ' . $request['hotel_name'] . ' from ' . $request['check_in_date'] . ' to ' . $request['check_out_date'] . ' for ' . $request['guests'] . ' guest(s)';
     }

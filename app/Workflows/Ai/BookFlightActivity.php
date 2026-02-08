@@ -3,20 +3,28 @@
 namespace App\Workflows\Ai;
 
 use Workflow\Activity;
+use Workflow\Exceptions\NonRetryableException;
 
 class BookFlightActivity extends Activity
 {
-    public $tries = 1;
-
-    public function execute(string $origin, string $destination, string $departureDate, bool $shouldFail = false)
+    public function execute(string $origin, string $destination, string $departureDate, ?string $returnDate = null, bool $shouldFail = false)
     {
         if ($shouldFail) {
-            throw new \RuntimeException("Flight booking failed: {$origin} to {$destination}");
+            throw new NonRetryableException("Flight booking failed: {$origin} to {$destination}");
         }
 
         $id = random_int(100000, 999999);
-        error_log('Booking flight: ' . $origin . ' -> ' . $destination . ' on ' . $departureDate . '. Confirmation #' . $id);
 
-        return 'Flight booked: ' . $origin . ' to ' . $destination . ' on ' . $departureDate . '. Confirmation #' . $id;
+        $summary = "Flight booked: {$origin} to {$destination}, departing {$departureDate}";
+        if ($returnDate) {
+            $summary .= ", returning {$returnDate}";
+        } else {
+            $summary .= ' (one-way)';
+        }
+        $summary .= ". Confirmation #{$id}";
+
+        error_log($summary);
+
+        return $summary;
     }
 }

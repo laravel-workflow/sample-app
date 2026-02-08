@@ -3,23 +3,35 @@
 namespace App\Workflows\Ai;
 
 use App\Ai\Agents\TravelAgent;
+use App\Ai\Tools\BookFlight;
+use App\Ai\Tools\BookHotel;
+use App\Ai\Tools\BookRentalCar;
 use Workflow\Activity;
 
 class TravelAgentActivity extends Activity
 {
-    public function execute($workflowId, $messages)
+    public function execute($messages)
     {
         $history = array_slice($messages, 0, -1);
         $currentUserMessage = end($messages);
 
-        error_log('TravelAgentActivity received message: ' . $currentUserMessage->content);
+        BookHotel::$pending = [];
+        BookFlight::$pending = [];
+        BookRentalCar::$pending = [];
 
-        $response = (new TravelAgent($workflowId))
+        $response = (new TravelAgent())
             ->continue($history)
             ->prompt($currentUserMessage->content);
 
-        error_log('TravelAgentActivity generated response: ' . $response);
+        $bookings = array_merge(
+            BookHotel::$pending,
+            BookFlight::$pending,
+            BookRentalCar::$pending,
+        );
 
-        return (string) $response;
+        return json_encode([
+            'text' => (string) $response,
+            'bookings' => $bookings,
+        ]);
     }
 }

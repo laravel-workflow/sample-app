@@ -6,13 +6,10 @@ use Illuminate\Contracts\JsonSchema\JsonSchema;
 use Laravel\Ai\Contracts\Tool;
 use Laravel\Ai\Tools\Request;
 use Stringable;
-use Workflow\WorkflowStub;
 
 class BookRentalCar implements Tool
 {
-    public function __construct(
-        private readonly int $workflowId,
-    ) {}
+    public static array $pending = [];
 
     public function description(): Stringable|string
     {
@@ -21,13 +18,12 @@ class BookRentalCar implements Tool
 
     public function handle(Request $request): Stringable|string
     {
-        $workflow = WorkflowStub::load($this->workflowId);
-        $workflow->send(json_encode([
+        self::$pending[] = [
             'type' => 'book_rental_car',
             'pickup_location' => $request['pickup_location'],
             'pickup_date' => $request['pickup_date'],
             'return_date' => $request['return_date'],
-        ]));
+        ];
 
         return 'Booking rental car at ' . $request['pickup_location'] . ' from ' . $request['pickup_date'] . ' to ' . $request['return_date'];
     }

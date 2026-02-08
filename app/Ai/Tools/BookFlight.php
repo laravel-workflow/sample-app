@@ -6,13 +6,10 @@ use Illuminate\Contracts\JsonSchema\JsonSchema;
 use Laravel\Ai\Contracts\Tool;
 use Laravel\Ai\Tools\Request;
 use Stringable;
-use Workflow\WorkflowStub;
 
 class BookFlight implements Tool
 {
-    public function __construct(
-        private readonly int $workflowId,
-    ) {}
+    public static array $pending = [];
 
     public function description(): Stringable|string
     {
@@ -21,15 +18,20 @@ class BookFlight implements Tool
 
     public function handle(Request $request): Stringable|string
     {
-        $workflow = WorkflowStub::load($this->workflowId);
-        $workflow->send(json_encode([
+        self::$pending[] = [
             'type' => 'book_flight',
             'origin' => $request['origin'],
             'destination' => $request['destination'],
             'departure_date' => $request['departure_date'],
-        ]));
+            'return_date' => $request['return_date'] ?? null,
+        ];
 
-        return 'Booking flight from ' . $request['origin'] . ' to ' . $request['destination'] . ' on ' . $request['departure_date'];
+        $summary = 'Booking flight from ' . $request['origin'] . ' to ' . $request['destination'] . ' departing ' . $request['departure_date'];
+        if (! empty($request['return_date'])) {
+            $summary .= ', returning ' . $request['return_date'];
+        }
+
+        return $summary;
     }
 
     public function schema(JsonSchema $schema): array
@@ -38,6 +40,7 @@ class BookFlight implements Tool
             'origin' => $schema->string()->required()->description('Departure airport or city'),
             'destination' => $schema->string()->required()->description('Arrival airport or city'),
             'departure_date' => $schema->string()->required()->description('Departure date (YYYY-MM-DD)'),
+            'return_date' => $schema->string()->description('Return date (YYYY-MM-DD). Omit for one-way flights.'),
         ];
     }
 }

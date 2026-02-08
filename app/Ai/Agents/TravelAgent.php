@@ -17,22 +17,31 @@ class TravelAgent implements Agent, Conversational, HasTools
 
     private array $messages = [];
 
-    public function __construct(
-        private readonly int $workflowId,
-    ) {}
-
     /**
      * Get the instructions that the agent should follow.
      */
     public function instructions(): Stringable|string
     {
         return <<<'INSTRUCTIONS'
-        You are a travel agent. Help users plan and book travel.
+        You are a professional travel agent. Help users plan and book travel.
 
-        When a user asks you to book a hotel, flight, or rental car, ALWAYS
-        call the appropriate booking tool immediately with whatever details
-        they provided. Never ask for more details before calling the tool.
-        Use reasonable defaults for any missing information.
+        BOOKING RULES:
+        - When a user asks to book a hotel, flight, or rental car, ALWAYS call
+          the appropriate booking tool immediately with whatever details they
+          provided. Never ask for more details before calling the tool.
+        - Use reasonable defaults for any missing information (e.g. 1 guest,
+          next-day dates, economy class).
+        - You may call multiple booking tools in a single response if the user
+          requests multiple bookings.
+        - For flights, always include a return date if the user mentions round
+          trip, return dates, or trip end dates. Omit return_date only for
+          explicitly one-way flights.
+
+        CONVERSATION RULES:
+        - Be concise and action-oriented.
+        - After placing bookings, briefly confirm what was booked.
+        - You can also help with itinerary planning, destination advice,
+          packing lists, and general travel logistics.
         INSTRUCTIONS;
     }
 
@@ -62,9 +71,9 @@ class TravelAgent implements Agent, Conversational, HasTools
     public function tools(): iterable
     {
         return [
-            new BookHotel($this->workflowId),
-            new BookFlight($this->workflowId),
-            new BookRentalCar($this->workflowId),
+            new BookHotel(),
+            new BookFlight(),
+            new BookRentalCar(),
         ];
     }
 }

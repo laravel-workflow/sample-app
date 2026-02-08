@@ -3,15 +3,14 @@
 namespace App\Workflows\Ai;
 
 use Workflow\Activity;
+use Workflow\Exceptions\NonRetryableException;
 
 class BookRentalCarActivity extends Activity
 {
-    public $tries = 1;
-
     public function execute(string $pickupLocation, string $pickupDate, string $returnDate, bool $shouldFail = false)
     {
         if ($shouldFail) {
-            throw new \RuntimeException("Rental car booking failed: {$pickupLocation}");
+            throw new NonRetryableException("Rental car booking failed: {$pickupLocation}");
         }
 
         $id = random_int(100000, 999999);
