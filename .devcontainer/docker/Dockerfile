@@ -53,6 +53,10 @@ COPY php.ini /etc/php/8.4/cli/conf.d/99-laravel.ini
 
 RUN chmod +x /usr/local/bin/start-container
 
+RUN phpdismod -v 8.4 xdebug
+RUN phpdismod -v 8.4 pcov
+RUN phpdismod -v 8.4 swoole
+
 EXPOSE 8000
 
 ENTRYPOINT ["start-container"]
