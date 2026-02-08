@@ -13,8 +13,9 @@ use function Workflow\{activity, awaitWithTimeout};
 
 class AiWorkflow extends Workflow
 {
+    private const INACTIVITY_TIMEOUT = '2 minutes';
+
     private const MAX_MESSAGES = 20;
-    private const INACTIVITY_TIMEOUT = '5 minutes';
 
     #[SignalMethod]
     public function send(string $message): void
@@ -41,7 +42,6 @@ class AiWorkflow extends Workflow
 
                 if (! $receivedMessage) {
                     throw new Exception('Session ended due to inactivity. Please start a new conversation.');
-                    break;
                 }
 
                 $messages[] = new UserMessage($this->inbox->nextUnread());
