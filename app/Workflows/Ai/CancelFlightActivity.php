@@ -2,12 +2,13 @@
 
 namespace App\Workflows\Ai;
 
+use Illuminate\Support\Facades\Log;
 use Workflow\Activity;
 
 class CancelFlightActivity extends Activity
 {
     public function execute($flightId)
     {
-        error_log('Cancelling flight ' . $flightId . '...');
+        Log::error('Cancelling flight ' . $flightId . '...');
     }
 }

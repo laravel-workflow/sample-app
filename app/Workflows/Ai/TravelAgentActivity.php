@@ -12,12 +12,12 @@ class TravelAgentActivity extends Activity
 {
     public function execute($messages)
     {
-        $history = array_slice($messages, 0, -1);
-        $currentUserMessage = end($messages);
-
         BookHotel::$pending = [];
         BookFlight::$pending = [];
         BookRentalCar::$pending = [];
+
+        $history = array_slice($messages, 0, -1);
+        $currentUserMessage = end($messages);
 
         $response = (new TravelAgent())
             ->continue($history)

@@ -2,12 +2,13 @@
 
 namespace App\Workflows\Ai;
 
+use Illuminate\Support\Facades\Log;
 use Workflow\Activity;
 
 class CancelHotelActivity extends Activity
 {
     public function execute($hotelId)
     {
-        error_log('Cancelling hotel ' . $hotelId . '...');
+        Log::error('Cancelling hotel ' . $hotelId . '...');
     }
 }
